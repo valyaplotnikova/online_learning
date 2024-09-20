@@ -1,0 +1,98 @@
+[
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$h1sndVvrBhEjxFyURliK7U$Hoi6c1WAApthw1q45vwHgdt5TPQcvFFKnO0lkLOE4xs=",
+        "last_login": "2024-09-20T12:07:10.376Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2024-09-20T11:20:36.317Z",
+        "email": "admin@admin.ru",
+        "phone": "",
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "123zxc",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-20T12:15:00Z",
+        "email": "test@test.ru",
+        "phone": "",
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "963qaz",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2024-09-20T12:15:33Z",
+        "email": "test2@test.ru",
+        "phone": "",
+        "city": null,
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.payments",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "payment_data": "2024-09-20T12:38:00Z",
+        "paid_course": 2,
+        "paid_lesson": null,
+        "payment_sum": 200,
+        "payment_method": "наличные"
+    }
+},
+{
+    "model": "users.payments",
+    "pk": 2,
+    "fields": {
+        "user": 4,
+        "payment_data": "2024-09-05T12:20:14Z",
+        "paid_course": null,
+        "paid_lesson": 4,
+        "payment_sum": 1500,
+        "payment_method": "перевод на счет"
+    }
+},
+{
+    "model": "users.payments",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "payment_data": "2024-08-20T01:38:46Z",
+        "paid_course": null,
+        "paid_lesson": 2,
+        "payment_sum": 1200,
+        "payment_method": "наличные"
+    }
+}
+]

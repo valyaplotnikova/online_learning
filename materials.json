@@ -1,0 +1,60 @@
+[
+{
+    "model": "materials.course",
+    "pk": 2,
+    "fields": {
+        "course_name": "Лингвистика",
+        "preview": "",
+        "description": "Очень интересный курс"
+    }
+},
+{
+    "model": "materials.course",
+    "pk": 3,
+    "fields": {
+        "course_name": "Психология",
+        "preview": "",
+        "description": "Очень полезный курс"
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 2,
+    "fields": {
+        "lesson_name": "Фонемика",
+        "description": "Занятие о произношении",
+        "preview": "",
+        "course": 2
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 3,
+    "fields": {
+        "lesson_name": "Языки и их структура",
+        "description": "Фундаментальный урок",
+        "preview": "",
+        "course": 2
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 4,
+    "fields": {
+        "lesson_name": "Психотип личности",
+        "description": "Все о психотипах",
+        "preview": "",
+        "course": 3
+    }
+},
+{
+    "model": "materials.lesson",
+    "pk": 5,
+    "fields": {
+        "lesson_name": "Детская психология",
+        "description": "Как понять своего ребенка",
+        "preview": "",
+        "course": 3
+    }
+}
+]
