@@ -1,5 +1,8 @@
-from rest_framework import viewsets
-from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters import filters
+from rest_framework import viewsets, generics
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import OrderingFilter
+
 from users.models import User, Payments
 from users.serializers import UserSerializer, PaymentsSerializer
 
@@ -9,9 +12,9 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class PaymentsViewSet(viewsets.ModelViewSet):
-    queryset = Payments.objects.all()
+class PaymentsListAPIView(generics.ListAPIView):
     serializer_class = PaymentsSerializer
-    filter_backends = [SearchFilter, OrderingFilter]
+    queryset = Payments.objects.all()
+    filter_backends = [DjangoFilterBackend, OrderingFilter]
     search_fields = ['paid_course', 'paid_lesson', 'payment_method']
     ordering_fields = ['payment_data']
