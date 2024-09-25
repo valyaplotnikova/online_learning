@@ -5,13 +5,19 @@ from rest_framework.filters import OrderingFilter
 from rest_framework.permissions import AllowAny
 
 from users.models import User, Payments
-from users.serializers import UserSerializer, PaymentsSerializer
+from users.serializers import UserSerializer, PaymentsSerializer, UserReadOnlySerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    # serializer_class = UserSerializer
     permission_classes = (AllowAny,)
+
+    def get_serializer_class(self):
+        if (self.action == "retrieve" and self.request.user == User.objects.get(pk=self.kwargs.get("pk"))
+                or self.request.user.is_superuser):
+            return UserSerializer
+        return UserReadOnlySerializer
 
     def perform_create(self, serializer):
         user = serializer.save(is_active=True)
