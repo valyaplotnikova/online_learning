@@ -17,3 +17,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('payments', 'email', )
+
+
+class UserReadOnlySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ("id", "email", "phone", "city", "avatar",)
