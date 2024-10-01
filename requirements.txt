@@ -11,6 +11,8 @@ python-dotenv==1.0.1
 django-filter==24.3
 djangorestframework-simplejwt==5.3.1
 pyjwt==2.9.0
+coverage==7.6.1
+
 
 
 
