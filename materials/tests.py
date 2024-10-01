@@ -156,7 +156,7 @@ class CourseTestCase(APITestCase):
 
     def test_course_update(self):
         """ Тестируем редактирование курса. """
-        url = reverse('materials:course-list', args=(self.course.pk,))
+        url = reverse('materials:course-detail', args=(self.course.pk,))
         data = {
             "course_name": "course_update"
         }
@@ -168,18 +168,18 @@ class CourseTestCase(APITestCase):
         self.assertEqual(
             data.get("course_name"), "course_update"
         )
-    #
-    # def test_lesson_delete(self):
-    #     """ Тестируем удаление урока. """
-    #     url = reverse('materials:lesson-delete', args=(self.lesson.pk,))
-    #     response = self.client.delete(url)
-    #     self.assertEqual(
-    #         response.status_code, status.HTTP_204_NO_CONTENT
-    #     )
-    #     self.assertEqual(
-    #         Lesson.objects.all().count(), 0
-    #     )
-    #
+
+    def test_course_delete(self):
+        """ Тестируем удаление курса. """
+        url = reverse('materials:course-detail', args=(self.course.pk,))
+        response = self.client.delete(url)
+        self.assertEqual(
+            response.status_code, status.HTTP_204_NO_CONTENT
+        )
+        self.assertEqual(
+            Course.objects.all().count(), 0
+        )
+
     # def test_lesson_list(self):
     #     """ Тестируем просмотр списка уроков. """
     #     url = reverse('materials:lesson-list')
