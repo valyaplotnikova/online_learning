@@ -8,6 +8,9 @@ from materials.models import Course, Lesson, Subscription
 from materials.paginators import MaterialsPagination
 from materials.serializers import CourseSerializer, LessonSerializer, SubscriptionSerializer
 from users.permissions import IsModers, IsOwner
+from datetime import datetime, timedelta
+
+from materials.tasks import send_email_about_update
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -28,6 +31,15 @@ class CourseViewSet(viewsets.ModelViewSet):
         elif self.action == 'destroy':
             self.permission_classes = (~IsModers | IsOwner,)
         return super().get_permissions()
+
+    def perform_update(self, serializer):
+        course = serializer.save()
+        course_id = course.id
+        updated_at = course.updated_at.hour
+        now = datetime.now().hour
+        difference = now - updated_at
+        if difference > 4:
+            send_email_about_update.delay(course_id=course_id)
 
 
 class LessonCreateAPIView(generics.CreateAPIView):
