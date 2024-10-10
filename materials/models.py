@@ -9,6 +9,8 @@ class Course(models.Model):
     description = models.TextField(blank=True, null=True, verbose_name='Описание курса')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True,
                               verbose_name='Владелец курса')
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True, verbose_name='Время создания курса')
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True, verbose_name='Время обновления курса')
 
     def __str__(self):
         return self.course_name
